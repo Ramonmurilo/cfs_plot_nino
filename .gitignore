@@ -1,0 +1,21 @@
+.*.grb
+*grb
+.*.idx
+*.idx
+.*.nc
+*.nc
+.*.grb2*
+*.grb2
+.*.png
+*.png
+
+# Jupyter Notebook
+.ipynb_checkpoints
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+arquivos_teste/
+arquivos_teste2/
+arquivos_teste_noaa/
+download/
