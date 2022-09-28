@@ -62,7 +62,10 @@ def main(dados: dataset, contorno_tipo:str='lon_lat',tipo:str='grib', dado_conto
             print('Erro no recorte comum. Aplicando opção all_touched=True')
             dados_recortados = dados_preparados.rio.clip(dado_contorno, "epsg:4326", all_touched=True)
     elif contorno_tipo == 'lat_lon':
-        dados_recortados = dados_preparados.sel(longitude=slice(longitude[0], longitude[1]), latitude=slice(latitude[0], latitude[1]))
+        try:
+            dados_recortados = dados_preparados.sel(longitude=slice(longitude[0], longitude[1]), latitude=slice(latitude[0], latitude[1]))
+        except:
+            dados_recortados = dados_preparados.sel(lon=slice(longitude[0], longitude[1]), lat=slice(latitude[0], latitude[1]))
     else:
         sys.exit('variável "contorno_tipo" incompatível. Selecione {lon_lat ou shapefile}')
         
