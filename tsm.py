@@ -9,11 +9,13 @@ import utils
 Caso não exista a pasta 'downloads', ela é criada ao chamar este módulo
 """
 #caminho_base = ""#utils.dir_abs
-diretorio_saida = Path(f'cfs_clima_91_20_daily/')
-diretorio_saida.mkdir(exist_ok=True, parents=True)
+diretorio_saida = Path(f'download/')
+#diretorio_saida.mkdir(exist_ok=True, parents=True)
 
 
-def auxiliar_download(url_base:str, data_requerida:pendulum.datetime, nome_arquivo:str) -> bool:
+def auxiliar_download(
+    url_base:str, data_requerida:pendulum.datetime, nome_arquivo:str, diretorio_saida:Path
+    ) -> bool:
     """ Subfunção de download(). Não é chamada diretamente.
     Faz a requisição do dado de TSM no repositório da NOAA.
     Args:
@@ -43,7 +45,7 @@ def auxiliar_download(url_base:str, data_requerida:pendulum.datetime, nome_arqui
     return mensagem_de_sucesso
 
 
-def download(data_string:str=None, hoje:bool=False) -> str:
+def download(data_string:str=None, hoje:bool=False, diretorio_saida:Path=diretorio_saida) -> str:
     """Chama a função de download dos dados de temperatura oceânica do NOAA.
     Caso o dado final não esteja pronto, baixa o preliminar.
     Args:
@@ -57,14 +59,14 @@ def download(data_string:str=None, hoje:bool=False) -> str:
     url_base = 'https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr'
 
     nome_arquivo = f'oisst-avhrr-v02r01.{data_requerida.format("YYYYMMDD")}.nc'
-    sucesso = auxiliar_download(url_base, data_requerida, nome_arquivo)
+    sucesso = auxiliar_download(url_base, data_requerida, nome_arquivo, diretorio_saida)
 
     if sucesso:
         tipo = "consistido"
         return nome_arquivo, tipo
     else :
         nome_arquivo = f'oisst-avhrr-v02r01.{data_requerida.format("YYYYMMDD")}_preliminary.nc'
-        sucesso = auxiliar_download(url_base, data_requerida, nome_arquivo)
+        sucesso = auxiliar_download(url_base, data_requerida, nome_arquivo, diretorio_saida)
         
         if sucesso:
             tipo = "preliminar"
