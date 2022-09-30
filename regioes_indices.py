@@ -16,7 +16,7 @@ class Indices(BaseModel):
 
 
 # delimitação das regiões Niño segundo:
-# https://climatedataguide.ucar.edu/climate-data/nino-sst-indices-nino-12-3-34-4-oni-and-tni?qt-climatedatasetmaintabs=4#qt-climatedatasetmaintabs
+# https://climatedataguide.ucar.edu/climate-data/nino-sst-indices-nino-12-3-34-4-oni-and-tni
 
 # delimitação de região CBM segundo:
 # https://www.scielo.br/j/rbmet/a/TmNk6J3bcqGC85hvgfPzkJj/?lang=pt
