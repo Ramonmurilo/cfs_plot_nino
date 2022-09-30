@@ -47,13 +47,13 @@ regioes = [
 # recomendado para regiões de recorte do nino e/ou pacífico
 regioes2 = [
     # Niño 1+2 (0-10S, 90W-80W)
-    Nino(latitude=(0, -10), longitude=(270, 280), nome="TSM Niño 1+2", id=12, longitude_padronizada=False),
+    Indices(latitude=(0, -10), longitude=(270, 280), nome="TSM Niño 1+2", id=12, longitude_padronizada=False),
     # Niño 3 (5N-5S, 150W-90W)
-    Nino(latitude=(5, -5), longitude=(210, 270), nome="TSM Niño 3", id=3, longitude_padronizada=False),
+    Indices(latitude=(5, -5), longitude=(210, 270), nome="TSM Niño 3", id=3, longitude_padronizada=False),
     # Niño 3.4 (5N-5S, 170W-120W)
-    Nino(latitude=(5, -5), longitude=(190, 240), nome="TSM Niño 3.4", id=34, longitude_padronizada=False),
+    Indices(latitude=(5, -5), longitude=(190, 240), nome="TSM Niño 3.4", id=34, longitude_padronizada=False),
     # Niño 4 (5N-5S, 160E-150W)
-    Nino(latitude=(5, -5), longitude=(200, 210), nome="TSM Niño 4", id=4, longitude_padronizada=False),
+    Indices(latitude=(5, -5), longitude=(200, 210), nome="TSM Niño 4", id=4, longitude_padronizada=False),
     # CBM (43ºS - 33ºS, 63ºW - 48ºW)
     Indices(latitude=(-33, -43), longitude=(-63, -48), nome="TSM CBM", id=5, longitude_padronizada=True),
     # Atlântico tropical norte - TNA (5N-25N, 55W-15W)
